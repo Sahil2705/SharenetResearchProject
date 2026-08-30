@@ -9,6 +9,9 @@ const dbConfig = {
   password: process.env.DATABASE_PASSWORD || '',
   database: process.env.DATABASE_NAME || 'smartnet_db',
   port: parseInt(process.env.DATABASE_PORT || '3306', 10),
+    ssl: {
+    rejectUnauthorized: true
+  },
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
@@ -16,6 +19,7 @@ const dbConfig = {
   enableKeepAlive: true,
   keepAliveInitialDelay: 0,
 };
+
 
 let pool = null;
 let isConnected = false;
